@@ -200,3 +200,100 @@ body {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   }
 }
+
+/* ==========================================================================
+   8. SERVICES SECTION (Layanan Kami)
+   ========================================================================== */
+.services {
+  padding: 80px 0;
+  background-color: var(
+    --white
+  ); /* Menggunakan latar belakang putih untuk kontras */
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Sistem Grid untuk Kartu */
+.services-grid {
+  display: grid;
+  /* Membuat kolom responsif: otomatis menyesuaikan layar */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Desain Kartu Layanan */
+.service-card {
+  background-color: var(--bg-light);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  /* Posisi relatif untuk efek dekorasi saat hover nanti */
+  position: relative;
+  overflow: hidden;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.card-title {
+  font-family: var(--font-btn);
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* Interaksi Mikro saat Kartu Disorot (Hover) */
+.service-card:hover {
+  border-color: var(--mustard);
+  box-shadow: 0 10px 25px rgba(244, 162, 97, 0.15);
+  transform: translateY(-5px); /* Kartu sedikit terangkat */
+}
+
+.service-card:hover .card-icon {
+  transform: scale(1.2) rotate(5deg); /* Ikon membesar dan sedikit miring */
+}
+
+/* Garis dekorasi atas pada kartu yang muncul saat hover */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--coral);
+  transition: width 0.3s ease;
+}
+
+.service-card:hover::before {
+  width: 100%;
+}
