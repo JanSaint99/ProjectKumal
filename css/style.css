@@ -1,0 +1,755 @@
+/* ==========================================================================
+   1. CSS VARIABLES
+   ========================================================================== */
+:root {
+  /* Warna Utama */
+  --mustard: #f4a261;
+  --coral: #e76f51;
+
+  /* Warna Netral */
+  --text-dark: #2a2a2a;
+  --text-light: #666666;
+  --bg-light: #fdfdfd;
+  --white: #ffffff;
+
+  /* Tipografi */
+  --font-heading: "Montserrat", sans-serif;
+  --font-btn: "Poppins", sans-serif;
+  --font-body: "HK Grotesk", sans-serif;
+
+  /* Transisi Global */
+  --transition: 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   3. HEADER
+   ========================================================================== */
+.header {
+  padding: 30px 0;
+  background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-main {
+  height: 90px;
+  width: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-main:hover {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   4. HERO SECTION
+   ========================================================================== */
+.hero {
+  padding: 80px 0 60px;
+}
+
+.hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+/* Staggered fade-up saat halaman pertama dibuka */
+.hero-title,
+.hero-description,
+.btn-primary,
+.hero-badge,
+.contact-section {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeUp 0.65s ease forwards;
+}
+
+.hero-title {
+  animation-delay: 0.08s;
+}
+.hero-description {
+  animation-delay: 0.22s;
+}
+.btn-primary {
+  animation-delay: 0.36s;
+}
+.hero-badge {
+  animation-delay: 0.46s;
+}
+.contact-section {
+  animation-delay: 0.58s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.hero-title strong {
+  color: var(--mustard);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 35px;
+  max-width: 90%;
+}
+
+/* ==========================================================================
+   5. TOMBOL
+   ========================================================================== */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--mustard);
+  color: var(--white);
+  font-family: var(--font-btn);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    background-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+  box-shadow: 0 4px 15px rgba(244, 162, 97, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--coral);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.4);
+}
+
+/* ==========================================================================
+   5b. HERO BADGE (Social Proof Kecil)
+   ========================================================================== */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 8px 16px;
+  background-color: #fff8f3;
+  border: 1px solid rgba(244, 162, 97, 0.3);
+  border-radius: 50px;
+  font-family: var(--font-btn);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.badge-icon {
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   6. KONTAK & SOSIAL MEDIA
+   ========================================================================== */
+.contact-section {
+  margin-top: 36px;
+}
+
+.contact-title {
+  font-family: var(--font-btn);
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.social-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--white);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-family: var(--font-btn);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition),
+    color var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.social-card:hover {
+  border-color: var(--mustard);
+  background-color: #fffdfa;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(244, 162, 97, 0.1);
+  color: var(--mustard);
+}
+
+.social-card .icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.social-card:hover .icon {
+  transform: scale(1.1);
+}
+
+/* Kartu spesial WhatsApp */
+.wa-card {
+  background-color: #25d366;
+  color: var(--white);
+  border-color: #25d366;
+}
+
+.wa-card:hover {
+  background-color: #1ebe5d;
+  color: var(--white);
+  border-color: #1ebe5d;
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+}
+
+.wa-card .icon {
+  filter: brightness(0) invert(1);
+}
+
+/* ==========================================================================
+   7. HERO VISUAL — Ilustrasi Flat & Badge Overlapping
+   ========================================================================== */
+.hero-visual {
+  flex: 1;
+  position: relative; /* Diperlukan agar badge bisa absolute */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Visual sedikit lebih tinggi dari teks (asimetri) */
+  padding-top: 20px;
+}
+
+/* Ilustrasi SVG */
+.hero-illustration {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  /* Animasi masuk dari kanan */
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeLeft 0.7s ease 0.3s forwards;
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Badge mengambang yang overlapping antara kolom kiri & kanan */
+.floating-badge {
+  position: absolute;
+  bottom: 30px;
+  left: -30px; /* Overlap ke sisi kiri (kolom teks) */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(244, 162, 97, 0.2);
+  z-index: 10;
+  /* Animasi masuk */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.6s ease 0.9s forwards;
+}
+
+.fb-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.fb-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.fb-label {
+  font-family: var(--font-btn);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.fb-sub {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* ==========================================================================
+   8. SERVICES SECTION
+   ========================================================================== */
+.services {
+  padding: 80px 0;
+  background-color: var(--white);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid — 2 kolom untuk featured, lalu auto-fit untuk reguler */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Kartu Reguler */
+.service-card {
+  background-color: var(--bg-light);
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* Reveal by JS */
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  border-color: var(--mustard);
+  box-shadow: 0 10px 25px rgba(244, 162, 97, 0.15);
+  transform: translateY(-5px);
+}
+
+.service-card.visible:hover {
+  transform: translateY(-5px);
+}
+
+/* Garis dekorasi atas saat hover */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--coral);
+  transition: width var(--transition);
+}
+
+.service-card:hover::before {
+  width: 100%;
+}
+
+/* ── Kartu Unggulan (Featured) ── */
+.card-featured {
+  background: linear-gradient(135deg, #fff8f3, #fff2e8);
+  border-color: rgba(244, 162, 97, 0.35);
+}
+
+.card-featured::before {
+  background-color: var(--mustard); /* Garis atas warna mustard, bukan coral */
+}
+
+.card-featured:hover {
+  border-color: var(--mustard);
+  box-shadow: 0 12px 30px rgba(244, 162, 97, 0.2);
+}
+
+.card-featured-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 3px 10px;
+  background-color: var(--mustard);
+  color: var(--white);
+  font-family: var(--font-btn);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+  display: inline-block;
+  transition: transform var(--transition);
+}
+
+.service-card:hover .card-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.card-title {
+  font-family: var(--font-btn);
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 0.93rem;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   9. FLOATING WHATSAPP BUTTON
+   ========================================================================== */
+.floating-wa {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-btn);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition:
+    transform var(--transition),
+    background-color var(--transition),
+    box-shadow var(--transition);
+  animation: bounce 2s infinite;
+}
+
+.floating-wa:hover {
+  transform: scale(1.05);
+  background-color: #1ebe5d;
+  animation: none;
+}
+
+.icon-wa {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  flex-shrink: 0;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ==========================================================================
+   10. FOOTER (Revisi)
+   ========================================================================== */
+.footer {
+  padding: 60px 0 36px;
+  background-color: #2a2a2a;
+  color: var(--white);
+  margin-top: 80px;
+}
+
+/* Baris atas: 3 kolom */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.footer-brand {
+  flex: 2;
+}
+
+.logo-footer-typo {
+  height: 35px;
+  width: auto;
+  margin-bottom: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  line-height: 1.7;
+}
+
+/* Kolom Navigasi & Kontak */
+.footer-nav,
+.footer-contact {
+  flex: 1;
+}
+
+.footer-nav-title {
+  font-family: var(--font-btn);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--mustard);
+  margin-bottom: 16px;
+}
+
+.footer-nav ul,
+.footer-contact ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav ul a,
+.footer-contact ul a {
+  font-size: 0.88rem;
+  color: #aaaaaa;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-nav ul a:hover,
+.footer-contact ul a:hover {
+  color: var(--mustard);
+}
+
+/* Garis pemisah */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #3d3d3d;
+  margin: 36px 0 28px;
+}
+
+/* Baris bawah: copyright & partnership sejajar */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.copyright {
+  font-size: 0.82rem;
+  color: #777777;
+}
+
+.partnership-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.partner-label {
+  font-family: var(--font-btn);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--mustard);
+  white-space: nowrap;
+}
+
+.logo-partner {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity var(--transition);
+}
+
+.logo-partner:hover {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE — TABLET & MOBILE (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Header */
+  .logo-main {
+    height: 65px;
+  }
+
+  /* Hero */
+  .hero,
+  .services {
+    padding: 50px 0;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Badge social proof di tengah */
+  .hero-badge {
+    justify-content: center;
+  }
+
+  /* Floating badge di ilustrasi: posisi ulang agar tidak overflow */
+  .floating-badge {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    white-space: nowrap;
+  }
+
+  /* Floating WA */
+  .floating-wa {
+    bottom: 20px;
+    right: 20px;
+    padding: 14px;
+    border-radius: 50%;
+  }
+
+  .wa-text {
+    display: none;
+  }
+
+  /* Footer */
+  .footer-top {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .partnership-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ==========================================================================
+   12. RESPONSIVE — MOBILE KECIL (max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .floating-badge {
+    font-size: 0.8rem;
+  }
+}

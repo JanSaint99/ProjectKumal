@@ -12,108 +12,419 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- ===================== HEADER ===================== -->
     <header class="header">
-      <div class="container">
+      <div class="container header-centered">
         <img
-          src="assets/Pesulap Skripsi (Holding)/1.png"
-          alt="Logo PesulapSkripsi"
-          class="logo"
+          src="assets/pesulapskripsi/logopesulapskripsi.svg"
+          alt="PesulapSkripsi Logo"
+          class="logo-main"
         />
       </div>
     </header>
 
     <main>
+      <!-- ===================== HERO SECTION ===================== -->
       <section class="hero">
         <div class="container hero-wrapper">
+          <!-- Kolom Kiri: Teks & Kontak -->
           <div class="hero-content">
             <h1 class="hero-title">
-              Sebagai <strong>konsultan skripsi</strong> terdepan,
+              Your Trusted <strong>Academic Partner</strong>
             </h1>
 
             <p class="hero-description">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas
-              porttitor congue massa. Fusce posuere, magna sed pulvinar
-              ultricies, purus lectus malesuada libero, sit amet commodo magna
-              eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a
-              tellus. Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Proin pharetra nonummy pede.
-              Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet
-              nonummy augue. Suspendisse dui purus, scelerisque at, vulputate
-              vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis
-              eleifend. Ut nonummy.
+              Pesulap Skripsi hadir sebagai partner akademik terpercaya untuk
+              mendampingi Anda di setiap tahap penelitian. Dari penentuan judul
+              hingga persiapan sidang, kami memastikan proses Anda lebih
+              terarah, efisien, dan bebas dari kebingungan.
             </p>
 
             <a href="#layanan" class="btn-primary">Layanan Kami</a>
 
+            <!-- Badge kecil social proof -->
+            <div class="hero-badge">
+              <span class="badge-icon">🎓</span>
+              <span class="badge-text">Dipercaya ratusan mahasiswa</span>
+            </div>
+
             <div class="contact-section">
               <p class="contact-title">Hubungi kami:</p>
-              <ul class="social-links">
-                <li>
-                  <a href="LINK_IG_1" target="_blank">
-                    <img
-                      src="assets/icon/instagramicon.svg"
-                      alt="Instagram"
-                      class="icon"
-                    />
-                    Instagram @PesulapSkripsi
-                  </a>
-                </li>
 
-                <li>
-                  <a
-                    href="https://www.instagram.com/nekatlulus.id?igsh=a2xxaGUwNXdsOTFw"
-                    target="_blank"
-                  >
-                    <img
-                      src="assets/icon/instagramicon.svg"
-                      alt="Instagram"
-                      class="icon"
-                    />
-                    Instagram @NekatSkripsi.ID
-                  </a>
-                </li>
+              <div class="social-cards-container">
+                <a href="LINK_IG_1" target="_blank" class="social-card">
+                  <img
+                    src="assets/icon/instagramicon.svg"
+                    alt="Instagram"
+                    class="icon"
+                  />
+                  <span>Instagram PesulapSkripsi</span>
+                </a>
 
-                <li>
-                  <a
-                    href="https://www.tiktok.com/@pesulapskripsi?_r=1&_t=ZS-95YR4Ozglca"
-                    target="_blank"
-                  >
-                    <img
-                      src="assets/icon/tiktokicon.svg"
-                      alt="TikTok"
-                      class="icon"
-                    />
-                    TikTok
-                  </a>
-                </li>
+                <a
+                  href="https://www.instagram.com/nekatlulus.id?igsh=a2xxaGUwNXdsOTFw"
+                  target="_blank"
+                  class="social-card"
+                >
+                  <img
+                    src="assets/icon/instagramicon.svg"
+                    alt="Instagram"
+                    class="icon"
+                  />
+                  <span>Instagram @NekatSkripsi.ID</span>
+                </a>
 
-                <li>
-                  <a
-                    href="https://wa.me/message/JZJVJVISZO7FL1"
-                    target="_blank"
-                    class="btn-text-highlight"
-                  >
-                    <img
-                      src="assets/icon/whatsappicon.svg"
-                      alt="WhatsApp"
-                      class="icon"
-                    />
-                    Chat Admin WA
-                  </a>
-                </li>
-              </ul>
+                <a
+                  href="https://www.tiktok.com/@pesulapskripsi?_r=1&_t=ZS-95YR4Ozglca"
+                  target="_blank"
+                  class="social-card"
+                >
+                  <img
+                    src="assets/icon/tiktokicon.svg"
+                    alt="TikTok"
+                    class="icon"
+                  />
+                  <span>TikTok Pesulap Skripsi</span>
+                </a>
+
+                <a
+                  href="https://wa.me/message/JZJVJVISZO7FL1"
+                  target="_blank"
+                  class="social-card wa-card"
+                >
+                  <img
+                    src="assets/icon/whatsappicon.svg"
+                    alt="WhatsApp"
+                    class="icon"
+                  />
+                  <span>WhatsApp Admin</span>
+                </a>
+              </div>
             </div>
           </div>
+          <!-- /hero-content -->
 
+          <!-- Kolom Kanan: Ilustrasi & Badge Overlapping -->
           <div class="hero-visual">
-            <div class="shape-decoration"></div>
+            <!-- Badge mengambang yang overlap ke ilustrasi -->
+            <div class="floating-badge">
+              <span class="fb-emoji">✨</span>
+              <div class="fb-text">
+                <span class="fb-label">Siap mendampingi</span>
+                <span class="fb-sub">dari judul hingga sidang</span>
+              </div>
+            </div>
+
+            <!-- Ilustrasi flat inline SVG: mahasiswa + toga + laptop + buku -->
+            <svg
+              class="hero-illustration"
+              viewBox="0 0 420 420"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Ilustrasi mahasiswa belajar"
+            >
+              <!-- Latar lingkaran hangat -->
+              <circle cx="210" cy="210" r="190" fill="#FFF5EE" />
+              <circle cx="210" cy="210" r="148" fill="#FFE8D6" opacity="0.45" />
+
+              <!-- Meja -->
+              <rect
+                x="75"
+                y="270"
+                width="270"
+                height="13"
+                rx="6.5"
+                fill="#E76F51"
+                opacity="0.75"
+              />
+              <rect
+                x="108"
+                y="283"
+                width="12"
+                height="58"
+                rx="6"
+                fill="#E76F51"
+                opacity="0.55"
+              />
+              <rect
+                x="300"
+                y="283"
+                width="12"
+                height="58"
+                rx="6"
+                fill="#E76F51"
+                opacity="0.55"
+              />
+
+              <!-- Laptop (badan) -->
+              <rect
+                x="128"
+                y="210"
+                width="164"
+                height="60"
+                rx="8"
+                fill="#2a2a2a"
+              />
+              <rect
+                x="134"
+                y="215"
+                width="152"
+                height="50"
+                rx="5"
+                fill="#3d3d3d"
+              />
+              <!-- Layar: baris kode simulasi -->
+              <rect
+                x="143"
+                y="224"
+                width="75"
+                height="5"
+                rx="2.5"
+                fill="#F4A261"
+                opacity="0.95"
+              />
+              <rect
+                x="143"
+                y="234"
+                width="55"
+                height="4"
+                rx="2"
+                fill="#fff"
+                opacity="0.25"
+              />
+              <rect
+                x="143"
+                y="242"
+                width="90"
+                height="4"
+                rx="2"
+                fill="#fff"
+                opacity="0.25"
+              />
+              <rect
+                x="143"
+                y="250"
+                width="45"
+                height="4"
+                rx="2"
+                fill="#E76F51"
+                opacity="0.7"
+              />
+              <rect
+                x="143"
+                y="258"
+                width="70"
+                height="4"
+                rx="2"
+                fill="#fff"
+                opacity="0.25"
+              />
+              <!-- Engsel laptop -->
+              <rect
+                x="118"
+                y="268"
+                width="184"
+                height="7"
+                rx="3.5"
+                fill="#1a1a1a"
+              />
+
+              <!-- Buku tumpuk (kiri meja) -->
+              <rect
+                x="76"
+                y="249"
+                width="48"
+                height="28"
+                rx="4"
+                fill="#F4A261"
+              />
+              <rect
+                x="79"
+                y="245"
+                width="48"
+                height="28"
+                rx="4"
+                fill="#E76F51"
+              />
+              <rect
+                x="82"
+                y="241"
+                width="48"
+                height="28"
+                rx="4"
+                fill="#f9c89b"
+              />
+              <rect
+                x="87"
+                y="249"
+                width="26"
+                height="3"
+                rx="1.5"
+                fill="#fff"
+                opacity="0.45"
+              />
+              <rect
+                x="87"
+                y="255"
+                width="20"
+                height="3"
+                rx="1.5"
+                fill="#fff"
+                opacity="0.45"
+              />
+              <rect
+                x="87"
+                y="261"
+                width="24"
+                height="3"
+                rx="1.5"
+                fill="#fff"
+                opacity="0.45"
+              />
+
+              <!-- Cangkir kopi (kanan meja) -->
+              <rect
+                x="312"
+                y="244"
+                width="34"
+                height="28"
+                rx="5"
+                fill="#fff"
+                stroke="#e0e0e0"
+                stroke-width="1.5"
+              />
+              <path
+                d="M346 251 Q357 251 357 260 Q357 269 346 269"
+                stroke="#e0e0e0"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M321 240 Q323 234 321 228"
+                stroke="#ccc"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M329 238 Q331 231 329 225"
+                stroke="#ccc"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M337 240 Q339 234 337 228"
+                stroke="#ccc"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+
+              <!-- Kursi / punggung -->
+              <rect
+                x="178"
+                y="168"
+                width="64"
+                height="48"
+                rx="8"
+                fill="#F4A261"
+                opacity="0.18"
+              />
+
+              <!-- Kepala -->
+              <circle cx="210" cy="147" r="29" fill="#FDDCB5" />
+              <!-- Rambut -->
+              <path
+                d="M181 139 Q183 114 210 111 Q237 114 239 139 Q231 127 210 127 Q189 127 181 139Z"
+                fill="#2a2a2a"
+              />
+              <!-- Mata -->
+              <circle cx="202" cy="147" r="2.8" fill="#2a2a2a" />
+              <circle cx="218" cy="147" r="2.8" fill="#2a2a2a" />
+              <!-- Kilap mata -->
+              <circle cx="203.5" cy="145.5" r="1" fill="#fff" />
+              <circle cx="219.5" cy="145.5" r="1" fill="#fff" />
+              <!-- Senyum -->
+              <path
+                d="M204 156 Q210 162 216 156"
+                stroke="#2a2a2a"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+
+              <!-- Tangan kiri (memegang pena) -->
+              <path
+                d="M186 193 Q170 213 160 238"
+                stroke="#FDDCB5"
+                stroke-width="9"
+                stroke-linecap="round"
+                fill="none"
+              />
+              <rect
+                x="150"
+                y="234"
+                width="6"
+                height="17"
+                rx="3"
+                fill="#E76F51"
+                transform="rotate(-20 150 234)"
+              />
+              <polygon
+                points="150,250 156,250 153,258"
+                fill="#2a2a2a"
+                transform="rotate(-20 153 250)"
+              />
+
+              <!-- Tangan kanan (di laptop) -->
+              <path
+                d="M234 193 Q250 213 258 236"
+                stroke="#FDDCB5"
+                stroke-width="9"
+                stroke-linecap="round"
+                fill="none"
+              />
+
+              <!-- Toga / topi wisuda -->
+              <rect
+                x="193"
+                y="118"
+                width="34"
+                height="6"
+                rx="2"
+                fill="#2a2a2a"
+              />
+              <polygon points="210,107 228,121 192,121" fill="#2a2a2a" />
+              <line
+                x1="228"
+                y1="121"
+                x2="234"
+                y2="133"
+                stroke="#F4A261"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <circle cx="234" cy="135" r="3.5" fill="#F4A261" />
+
+              <!-- Dekorasi bintang / dot -->
+              <circle cx="342" cy="128" r="5" fill="#F4A261" opacity="0.55" />
+              <circle cx="78" cy="198" r="4" fill="#E76F51" opacity="0.35" />
+              <circle cx="362" cy="188" r="3" fill="#F4A261" opacity="0.45" />
+              <circle cx="96" cy="158" r="6" fill="#E76F51" opacity="0.25" />
+              <circle cx="356" cy="240" r="4" fill="#F4A261" opacity="0.3" />
+            </svg>
           </div>
+          <!-- /hero-visual -->
         </div>
       </section>
+      <!-- /hero -->
 
+      <!-- ===================== SERVICES SECTION ===================== -->
       <section id="layanan" class="services">
         <div class="container">
           <div class="services-header">
@@ -124,30 +435,44 @@
           </div>
 
           <div class="services-grid">
-            <div class="service-card">
-              <div class="card-icon">📊</div>
-              <h3 class="card-title">DataSolve</h3>
+            <!-- 2 Kartu Unggulan -->
+            <div class="service-card card-featured">
+              <div class="card-featured-badge">Paling Dicari</div>
+              <div class="card-icon">🎓</div>
+              <h3 class="card-title">Pembuatan Skripsi & Thesis</h3>
               <p class="card-desc">
-                Layanan pengolahan data statistik yang akurat dan terpercaya
-                untuk hasil penelitian yang valid.
+                Pendampingan menyeluruh dalam penyusunan skripsi dari awal
+                hingga akhir — dengan fokus pada kualitas dan pemahaman.
               </p>
             </div>
 
-            <div class="service-card">
+            <div class="service-card card-featured">
+              <div class="card-featured-badge">Populer</div>
               <div class="card-icon">👨‍🏫</div>
-              <h3 class="card-title">ScholarHub</h3>
+              <h3 class="card-title">Bimbingan Intensif</h3>
               <p class="card-desc">
-                Bimbingan skripsi intensif dari penentuan judul hingga persiapan
-                sidang akhir.
+                Bimbingan skripsi intensif dari awal hingga akhir — membantu
+                Anda memahami alur penelitian, bukan hanya menyelesaikannya.
+              </p>
+            </div>
+
+            <!-- Kartu Reguler -->
+            <div class="service-card">
+              <div class="card-icon">📊</div>
+              <h3 class="card-title">Olah Data Statistik</h3>
+              <p class="card-desc">
+                Pengolahan dan analisis data statistik yang akurat, terarah, dan
+                dapat dipertanggungjawabkan untuk menghasilkan penelitian yang
+                valid.
               </p>
             </div>
 
             <div class="service-card">
               <div class="card-icon">📑</div>
-              <h3 class="card-title">Judul & Jurnal</h3>
+              <h3 class="card-title">Referensi Jurnal & Rumusan Judul</h3>
               <p class="card-desc">
-                Bantuan pencarian referensi, perumusan judul, hingga publikasi
-                jurnal nasional dan internasional.
+                Bantuan dalam menemukan topik yang tepat, merumuskan judul yang
+                kuat, hingga pencarian referensi jurnal berkualitas.
               </p>
             </div>
 
@@ -155,26 +480,18 @@
               <div class="card-icon">📝</div>
               <h3 class="card-title">Pembuatan Proposal</h3>
               <p class="card-desc">
-                Penyusunan bab pendahuluan, tinjauan pustaka, dan metodologi
-                yang kokoh.
+                Penyusunan proposal skripsi yang sistematis dan terstruktur,
+                mulai dari latar belakang hingga metodologi penelitian.
               </p>
             </div>
 
             <div class="service-card">
-              <div class="card-icon">🔍</div>
-              <h3 class="card-title">Pembahasan</h3>
+              <div class="card-icon">💻</div>
+              <h3 class="card-title">Pembuatan Aplikasi & Website</h3>
               <p class="card-desc">
-                Analisis mendalam dan interpretasi hasil penelitian yang tajam
-                dan berbobot.
-              </p>
-            </div>
-
-            <div class="service-card">
-              <div class="card-icon">🎓</div>
-              <h3 class="card-title">Full Skripsi / Tesis</h3>
-              <p class="card-desc">
-                Pendampingan menyeluruh pembuatan naskah akademik dari awal
-                hingga akhir.
+                Pengembangan aplikasi dan website sebagai kebutuhan skripsi
+                untuk jurusan terkait, dengan fitur relevan serta pendampingan
+                agar Anda memahami alur dan cara kerjanya.
               </p>
             </div>
 
@@ -189,12 +506,97 @@
           </div>
         </div>
       </section>
+      <!-- /services -->
     </main>
 
-    <script src="js/script.js"></script>
-    <a href="https://wa.me/6281234567890" target="_blank" class="floating-wa">
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <!-- Baris atas: brand, nav, kontak -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <img
+              src="assets/pesulapskripsi/logopesulapskripsitypograph.svg"
+              alt="PesulapSkripsi Typography Logo"
+              class="logo-footer-typo"
+            />
+            <p class="footer-tagline">
+              Menyulap tantangan akademik<br />menjadi keajaiban kelulusan.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Navigasi Footer">
+            <p class="footer-nav-title">Navigasi</p>
+            <ul>
+              <li><a href="#">Beranda</a></li>
+              <li><a href="#layanan">Layanan</a></li>
+              <li>
+                <a href="https://wa.me/message/JZJVJVISZO7FL1" target="_blank"
+                  >Konsultasi</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <div class="footer-contact">
+            <p class="footer-nav-title">Temukan Kami</p>
+            <ul>
+              <li>
+                <a
+                  href="https://www.instagram.com/nekatlulus.id?igsh=a2xxaGUwNXdsOTFw"
+                  target="_blank"
+                >
+                  Instagram @NekatSkripsi.ID
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.tiktok.com/@pesulapskripsi?_r=1&_t=ZS-95YR4Ozglca"
+                  target="_blank"
+                >
+                  TikTok Pesulap Skripsi
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/message/JZJVJVISZO7FL1" target="_blank">
+                  WhatsApp Admin
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Garis pemisah -->
+        <div class="footer-divider"></div>
+
+        <!-- Baris bawah: copyright + partnership -->
+        <div class="footer-bottom">
+          <p class="copyright">
+            &copy; 2026 PesulapSkripsi. All rights reserved.
+          </p>
+          <div class="partnership-footer">
+            <p class="partner-label">In Partnership with:</p>
+            <img
+              src="assets/nekatlulusid/logonl.svg"
+              alt="NekatLulus.ID Logo"
+              class="logo-partner"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== FLOATING WHATSAPP ===================== -->
+    <a
+      href="https://wa.me/message/JZJVJVISZO7FL1"
+      target="_blank"
+      class="floating-wa"
+      aria-label="Konsultasi via WhatsApp"
+    >
       <img src="assets/icon/whatsappicon.svg" alt="WhatsApp" class="icon-wa" />
       <span class="wa-text">Konsultasi Sekarang</span>
     </a>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
