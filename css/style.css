@@ -2,22 +2,15 @@
    1. CSS VARIABLES
    ========================================================================== */
 :root {
-  /* Warna Utama */
   --mustard: #f4a261;
   --coral: #e76f51;
-
-  /* Warna Netral */
   --text-dark: #2a2a2a;
   --text-light: #666666;
   --bg-light: #fdfdfd;
   --white: #ffffff;
-
-  /* Tipografi */
   --font-heading: "Montserrat", sans-serif;
   --font-btn: "Poppins", sans-serif;
   --font-body: "HK Grotesk", sans-serif;
-
-  /* Transisi Global */
   --transition: 0.3s ease;
 }
 
@@ -51,12 +44,36 @@ body {
 }
 
 /* ==========================================================================
-   3. HEADER
+   3. HEADER — Sticky + Scroll Effect
    ========================================================================== */
 .header {
   padding: 30px 0;
   background: linear-gradient(to bottom, #ffffff, #f9f9f9);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* Sticky */
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  transition:
+    padding var(--transition),
+    box-shadow var(--transition),
+    background var(--transition),
+    backdrop-filter var(--transition);
+}
+
+/* State aktif saat user scroll — ditambahkan via JS */
+.header.scrolled {
+  padding: 14px 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  border-bottom-color: rgba(0, 0, 0, 0.07);
+}
+
+/* Logo mengecil halus saat header menyusut */
+.header.scrolled .logo-main {
+  height: 52px;
 }
 
 .header-centered {
@@ -80,7 +97,7 @@ body {
    4. HERO SECTION
    ========================================================================== */
 .hero {
-  padding: 80px 0 60px;
+  padding: 70px 0 60px;
 }
 
 .hero-wrapper {
@@ -94,7 +111,6 @@ body {
   flex: 1;
 }
 
-/* Staggered fade-up saat halaman pertama dibuka */
 .hero-title,
 .hero-description,
 .btn-primary,
@@ -174,7 +190,7 @@ body {
 }
 
 /* ==========================================================================
-   5b. HERO BADGE (Social Proof Kecil)
+   5b. HERO BADGE
    ========================================================================== */
 .hero-badge {
   display: inline-flex;
@@ -257,7 +273,39 @@ body {
   transform: scale(1.1);
 }
 
-/* Kartu spesial WhatsApp */
+/* Kartu Maintenance — tampak berbeda (greyed, kursor khusus) */
+.social-card--maintenance {
+  opacity: 0.7;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.social-card--maintenance:hover {
+  border-color: #e0a800;
+  background-color: #fffdf5;
+  color: #b8860b;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(184, 134, 11, 0.1);
+}
+
+/* Badge "⚠ Maintenance" kecil di pojok kanan atas kartu */
+.social-card--maintenance::after {
+  content: "⚠ Maintenance";
+  position: absolute;
+  top: -8px;
+  right: 8px;
+  background: #e0a800;
+  color: #fff;
+  font-family: var(--font-btn);
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+  pointer-events: none;
+}
+
+/* Kartu WhatsApp */
 .wa-card {
   background-color: #25d366;
   color: var(--white);
@@ -276,25 +324,21 @@ body {
 }
 
 /* ==========================================================================
-   7. HERO VISUAL — Ilustrasi Flat & Badge Overlapping
+   7. HERO VISUAL
    ========================================================================== */
 .hero-visual {
   flex: 1;
-  position: relative; /* Diperlukan agar badge bisa absolute */
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Visual sedikit lebih tinggi dari teks (asimetri) */
+  align-items: flex-start;
   padding-top: 20px;
 }
 
-/* Ilustrasi 3D — mix-blend-mode menghilangkan background putih secara visual */
 .hero-illustration {
   width: 100%;
-  max-width: 460px;
+  max-width: 420px;
   height: auto;
-  mix-blend-mode: multiply; /* Background putih gambar "menyatu" dengan background halaman */
-  display: block;
-  /* Animasi masuk dari kanan */
   opacity: 0;
   transform: translateX(30px);
   animation: fadeLeft 0.7s ease 0.3s forwards;
@@ -307,11 +351,10 @@ body {
   }
 }
 
-/* Badge mengambang yang overlapping antara kolom kiri & kanan */
 .floating-badge {
   position: absolute;
   bottom: 30px;
-  left: -30px; /* Overlap ke sisi kiri (kolom teks) */
+  left: -30px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -321,7 +364,6 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(244, 162, 97, 0.2);
   z-index: 10;
-  /* Animasi masuk — gunakan keyframe terpisah agar tidak bentrok dengan transform lain */
   opacity: 0;
   animation: badgeFadeIn 0.6s ease 0.9s forwards;
 }
@@ -362,445 +404,8 @@ body {
 }
 
 /* ==========================================================================
-   8b. PRICE PREVIEW di Service Card
+   8. SERVICES SECTION
    ========================================================================== */
-.card-price-preview {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin: 16px 0 14px;
-  padding-top: 14px;
-  border-top: 1px dashed #eaeaea;
-}
-
-.price-from {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  color: var(--text-light);
-}
-
-.price-value {
-  font-family: var(--font-btn);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--coral);
-}
-
-.card-featured .card-price-preview {
-  border-top-color: rgba(244, 162, 97, 0.3);
-}
-
-.btn-lihat-harga {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: 1.5px solid var(--mustard);
-  color: var(--mustard);
-  font-family: var(--font-btn);
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition:
-    background-color var(--transition),
-    color var(--transition),
-    transform var(--transition);
-  width: 100%;
-  justify-content: center;
-}
-
-.btn-lihat-harga:hover {
-  background-color: var(--mustard);
-  color: var(--white);
-}
-
-.btn-lihat-harga .arrow {
-  transition: transform var(--transition);
-}
-
-.btn-lihat-harga:hover .arrow {
-  transform: translateX(4px);
-}
-
-/* ==========================================================================
-   8c. COMING SOON CARD
-   ========================================================================== */
-.card-coming-soon {
-  opacity: 0.55;
-  filter: grayscale(0.4);
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.card-coming-badge {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 3px 10px;
-  background-color: #aaaaaa;
-  color: var(--white);
-  font-family: var(--font-btn);
-  font-size: 0.72rem;
-  font-weight: 600;
-  border-radius: 50px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.coming-soon-price {
-  font-size: 0.9rem !important;
-  color: #aaaaaa !important;
-  font-style: italic;
-}
-
-/* ==========================================================================
-   9. MODAL SYSTEM
-   ========================================================================== */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  /* Hidden by default */
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-box {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 36px;
-  max-width: 560px;
-  width: 100%;
-  max-height: 88vh;
-  overflow-y: auto;
-  position: relative;
-  transform: translateY(20px) scale(0.97);
-  transition: transform 0.3s ease;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-}
-
-.modal-box-wide {
-  max-width: 680px;
-}
-
-.modal-overlay.active .modal-box {
-  transform: translateY(0) scale(1);
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  color: var(--text-light);
-  cursor: pointer;
-  line-height: 1;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition:
-    background-color var(--transition),
-    color var(--transition);
-}
-
-.modal-close:hover {
-  background-color: #f0f0f0;
-  color: var(--text-dark);
-}
-
-/* Modal Header */
-.modal-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-right: 30px;
-}
-
-.modal-icon {
-  font-size: 2.4rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.modal-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  color: var(--text-dark);
-  margin-bottom: 4px;
-  line-height: 1.3;
-}
-
-.modal-subtitle {
-  font-size: 0.88rem;
-  color: var(--text-light);
-}
-
-/* Tabs */
-.modal-pricing-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #eaeaea;
-  padding-bottom: 0;
-}
-
-.tab-btn {
-  background: none;
-  border: none;
-  font-family: var(--font-btn);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-light);
-  cursor: pointer;
-  padding: 8px 16px;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  transition:
-    color var(--transition),
-    border-color var(--transition);
-}
-
-.tab-btn.active {
-  color: var(--mustard);
-  border-bottom-color: var(--mustard);
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-/* Pricing Tier Cards */
-.pricing-cards-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.pricing-tier {
-  border: 1.5px solid #eaeaea;
-  border-radius: 10px;
-  padding: 16px 14px;
-  text-align: center;
-  transition:
-    border-color var(--transition),
-    box-shadow var(--transition);
-}
-
-.pricing-tier.tier-highlight {
-  border-color: var(--mustard);
-  background: linear-gradient(135deg, #fff8f3, #fff2e8);
-  box-shadow: 0 4px 16px rgba(244, 162, 97, 0.15);
-}
-
-.tier-badge {
-  display: inline-block;
-  background: var(--mustard);
-  color: var(--white);
-  font-family: var(--font-btn);
-  font-size: 0.65rem;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 50px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
-}
-
-.tier-name {
-  font-family: var(--font-btn);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-
-.tier-price {
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  color: var(--text-light);
-  line-height: 1.5;
-}
-
-.tier-price strong {
-  font-family: var(--font-btn);
-  font-size: 1.05rem;
-  color: var(--coral);
-  display: block;
-}
-
-.tier-features {
-  list-style: none;
-  margin-top: 12px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.tier-features li {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  padding-left: 14px;
-  position: relative;
-}
-
-.tier-features li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--mustard);
-  font-weight: 700;
-}
-
-/* Feature List */
-.modal-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.modal-features li {
-  font-size: 0.9rem;
-  color: var(--text-dark);
-  padding: 8px 12px;
-  background: #fafafa;
-  border-radius: 8px;
-  border-left: 3px solid var(--mustard);
-}
-
-/* Price Highlight (single price) */
-.modal-price-highlight {
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #fff8f3, #fff2e8);
-  border-radius: 10px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(244, 162, 97, 0.2);
-}
-
-.big-price {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--text-light);
-}
-
-.big-price strong {
-  font-family: var(--font-btn);
-  font-size: 1.5rem;
-  color: var(--coral);
-  display: block;
-  margin-top: 4px;
-}
-
-/* Table */
-.modal-table-wrap {
-  overflow-x: auto;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #eaeaea;
-}
-
-.modal-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-}
-
-.modal-table thead tr {
-  background: linear-gradient(135deg, #fff8f3, #fff2e8);
-}
-
-.modal-table th {
-  font-family: var(--font-btn);
-  font-weight: 600;
-  color: var(--text-dark);
-  padding: 12px 14px;
-  text-align: left;
-  border-bottom: 1px solid #eaeaea;
-  white-space: nowrap;
-}
-
-.modal-table td {
-  padding: 10px 14px;
-  color: var(--text-dark);
-  border-bottom: 1px solid #f5f5f5;
-}
-
-.modal-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.modal-table tbody tr:hover td {
-  background-color: #fafafa;
-}
-
-.modal-table td:nth-child(2) {
-  font-family: var(--font-btn);
-  font-weight: 600;
-  color: var(--coral);
-  white-space: nowrap;
-}
-
-.modal-table td:nth-child(3) {
-  color: var(--text-light);
-  white-space: nowrap;
-}
-
-/* CTA Button */
-.modal-cta {
-  display: block;
-  width: 100%;
-  background-color: #25d366;
-  color: var(--white);
-  font-family: var(--font-btn);
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-  padding: 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition:
-    background-color var(--transition),
-    transform var(--transition),
-    box-shadow var(--transition);
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
-}
-
-.modal-cta:hover {
-  background-color: #1ebe5d;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
-}
-
-/* Scroll lock saat modal terbuka */
-body.modal-open {
-  overflow: hidden;
-}
-
 .services {
   padding: 80px 0;
   background-color: var(--white);
@@ -825,7 +430,6 @@ body.modal-open {
   margin: 0 auto;
 }
 
-/* Grid — 2 kolom untuk featured, lalu auto-fit untuk reguler */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -841,7 +445,8 @@ body.modal-open {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  /* Reveal by JS */
+  display: flex;
+  flex-direction: column;
   opacity: 0;
   transform: translateY(30px);
   transition:
@@ -866,7 +471,6 @@ body.modal-open {
   transform: translateY(-5px);
 }
 
-/* Garis dekorasi atas saat hover */
 .service-card::before {
   content: "";
   position: absolute;
@@ -882,14 +486,14 @@ body.modal-open {
   width: 100%;
 }
 
-/* ── Kartu Unggulan (Featured) ── */
+/* Kartu Unggulan */
 .card-featured {
   background: linear-gradient(135deg, #fff8f3, #fff2e8);
   border-color: rgba(244, 162, 97, 0.35);
 }
 
 .card-featured::before {
-  background-color: var(--mustard); /* Garis atas warna mustard, bukan coral */
+  background-color: var(--mustard);
 }
 
 .card-featured:hover {
@@ -902,6 +506,32 @@ body.modal-open {
   margin-bottom: 12px;
   padding: 3px 10px;
   background-color: var(--mustard);
+  color: var(--white);
+  font-family: var(--font-btn);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Kartu Coming Soon */
+.card-coming-soon {
+  opacity: 0.55 !important;
+  filter: grayscale(0.35);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.card-coming-soon.visible {
+  opacity: 0.55 !important;
+}
+
+.card-coming-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 3px 10px;
+  background-color: #aaaaaa;
   color: var(--white);
   font-family: var(--font-btn);
   font-size: 0.72rem;
@@ -933,6 +563,42 @@ body.modal-open {
   font-size: 0.93rem;
   color: var(--text-light);
   line-height: 1.65;
+  flex: 1; /* Dorong price preview & button ke bawah */
+}
+
+/* Tombol Selengkapnya */
+.btn-lihat-harga {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid var(--mustard);
+  color: var(--mustard);
+  font-family: var(--font-btn);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+  margin-top: auto;
+}
+
+.btn-lihat-harga:hover {
+  background-color: var(--mustard);
+  color: var(--white);
+}
+
+.btn-lihat-harga .arrow {
+  transition: transform var(--transition);
+}
+.btn-lihat-harga:hover .arrow {
+  transform: translateX(4px);
 }
 
 /* ==========================================================================
@@ -993,16 +659,29 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   10. FOOTER (Revisi)
+   10. FOOTER
    ========================================================================== */
 .footer {
   padding: 60px 0 36px;
   background-color: #2a2a2a;
   color: var(--white);
   margin-top: 80px;
+  /* Garis gradien mustard→coral di bagian atas footer */
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(to right, var(--mustard), var(--coral)) 1;
+  /* Reveal animasi saat scroll */
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
-/* Baris atas: 3 kolom */
+.footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -1027,7 +706,6 @@ body.modal-open {
   line-height: 1.7;
 }
 
-/* Kolom Navigasi & Kontak */
 .footer-nav,
 .footer-contact {
   flex: 1;
@@ -1064,7 +742,6 @@ body.modal-open {
   color: var(--mustard);
 }
 
-/* Garis pemisah */
 .footer-divider {
   width: 100%;
   height: 1px;
@@ -1072,7 +749,6 @@ body.modal-open {
   margin: 36px 0 28px;
 }
 
-/* Baris bawah: copyright & partnership sejajar */
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1113,7 +789,507 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   11. RESPONSIVE — TABLET & MOBILE (max-width: 768px)
+   11. SCROLL REVEAL — Utility Classes (dikontrol JS)
+   ========================================================================== */
+
+/* Semua elemen dengan class reveal-up dimulai dari bawah */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay bertahap untuk elemen dalam satu grup */
+.reveal-up:nth-child(1) {
+  transition-delay: 0s;
+}
+.reveal-up:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.reveal-up:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.reveal-up:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* ==========================================================================
+   12. MODAL SYSTEM
+   ========================================================================== */
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+/* Tombol tutup */
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-light);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.modal-close:hover {
+  background-color: #f0f0f0;
+  color: var(--text-dark);
+}
+
+/* Header modal */
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-right: 28px;
+}
+
+.modal-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.modal-subtitle {
+  font-size: 0.86rem;
+  color: var(--text-light);
+}
+
+/* Tabs */
+.modal-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-btn);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 8px 18px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.tab-btn.active {
+  color: var(--mustard);
+  border-bottom-color: var(--mustard);
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Pricing tiers */
+.pricing-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pricing-tier {
+  border: 1.5px solid #eaeaea;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.pricing-tier.tier-highlight {
+  border-color: var(--mustard);
+  background: linear-gradient(135deg, #fff8f3, #fff2e8);
+  box-shadow: 0 4px 16px rgba(244, 162, 97, 0.15);
+}
+
+.tier-badge {
+  display: inline-block;
+  background: var(--mustard);
+  color: var(--white);
+  font-family: var(--font-btn);
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.tier-name {
+  font-family: var(--font-btn);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.tier-price {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.tier-price strong {
+  font-family: var(--font-btn);
+  font-size: 1rem;
+  color: var(--coral);
+  display: block;
+  margin-top: 2px;
+}
+
+.tier-features {
+  list-style: none;
+  margin-top: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tier-features li {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  padding-left: 14px;
+  position: relative;
+}
+
+.tier-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--mustard);
+  font-weight: 700;
+}
+
+/* Feature list */
+.modal-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.modal-features li {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  padding: 8px 12px;
+  background: #fafafa;
+  border-radius: 8px;
+  border-left: 3px solid var(--mustard);
+}
+
+/* Price highlight (single) */
+.modal-price-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff8f3, #fff2e8);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(244, 162, 97, 0.2);
+  gap: 4px;
+}
+
+.price-label {
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.price-big {
+  font-family: var(--font-btn);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--coral);
+}
+
+/* Tabel */
+.modal-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.modal-table thead tr {
+  background: linear-gradient(135deg, #fff8f3, #fff2e8);
+}
+
+.modal-table th {
+  font-family: var(--font-btn);
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 11px 13px;
+  text-align: left;
+  border-bottom: 1px solid #eaeaea;
+  white-space: nowrap;
+}
+
+.modal-table td {
+  padding: 9px 13px;
+  color: var(--text-dark);
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.modal-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.modal-table tbody tr:hover td {
+  background-color: #fafafa;
+}
+
+.modal-table td:nth-child(2) {
+  font-family: var(--font-btn);
+  font-weight: 600;
+  color: var(--coral);
+  white-space: nowrap;
+}
+
+.modal-table td:nth-child(3) {
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+/* CTA button di modal */
+.modal-cta {
+  display: block;
+  width: 100%;
+  background-color: #25d366;
+  color: var(--white);
+  font-family: var(--font-btn);
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 13px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition:
+    background-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.modal-cta:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+}
+
+/* ==========================================================================
+   12. MODAL UNDER MAINTENANCE
+   ========================================================================== */
+.modal-box--maintenance {
+  max-width: 400px;
+  text-align: center;
+  padding: 40px 36px 36px;
+}
+
+.maintenance-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+  animation: wrench 1.5s ease-in-out infinite;
+}
+
+@keyframes wrench {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+}
+
+.modal-box--maintenance .modal-title {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.maintenance-desc {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.maintenance-desc strong {
+  color: var(--text-dark);
+}
+
+.maintenance-alt {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.maintenance-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.maintenance-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: var(--font-btn);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition);
+}
+
+.maintenance-btn .icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.maintenance-btn--ig {
+  background: linear-gradient(
+    135deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+  color: var(--white);
+}
+
+.maintenance-btn--ig .icon {
+  filter: brightness(0) invert(1);
+}
+
+.maintenance-btn--ig:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(220, 39, 67, 0.35);
+}
+
+.maintenance-btn--wa {
+  background-color: #25d366;
+  color: var(--white);
+}
+
+.maintenance-btn--wa .icon {
+  filter: brightness(0) invert(1);
+}
+
+.maintenance-btn--wa:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+/* Keyframe untuk floating badge di mobile — harus di luar media query
+   agar kompatibel dengan semua browser */
+@keyframes badgeFadeInMobile {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ==========================================================================
+   13. RESPONSIVE — TABLET & MOBILE (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
   /* Header */
@@ -1143,63 +1319,31 @@ body.modal-open {
     margin-right: auto;
   }
 
-  /* Badge social proof di tengah */
   .hero-badge {
     justify-content: center;
   }
 
-  /* Hero visual tetap relative agar badge tidak kabur */
   .hero-visual {
     width: 100%;
     padding-top: 0;
-    padding-bottom: 40px; /* Ruang untuk floating badge di bawah */
+    padding-bottom: 44px;
   }
 
-  /* Ilustrasi dibatasi agar tidak terlalu besar di tablet */
   .hero-illustration {
-    max-width: 340px;
+    max-width: 320px;
     margin: 0 auto;
+    display: block;
   }
 
-  /* Floating badge di ilustrasi: posisi ulang agar tidak overflow */
+  /* Floating badge centering dengan keyframe terpisah */
   .floating-badge {
     left: 50%;
     bottom: 0;
-    /* Override animasi agar centering tidak bentrok */
+    white-space: nowrap;
     animation: badgeFadeInMobile 0.6s ease 0.9s forwards;
   }
 
-  @keyframes badgeFadeInMobile {
-    from {
-      opacity: 0;
-      transform: translateX(-50%) translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-  }
-
-  /* Modal */
-  .modal-box {
-    padding: 24px 20px;
-    border-radius: 12px;
-  }
-
-  .modal-header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .pricing-cards-row {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-pricing-tabs {
-    overflow-x: auto;
-  }
-
-  /* Service cards grid 1 kolom di mobile */
+  /* Floating WA */
   .floating-wa {
     bottom: 20px;
     right: 20px;
@@ -1227,16 +1371,66 @@ body.modal-open {
     flex-direction: column;
     gap: 8px;
   }
+
+  /* Modal — padding lebih kecil */
+  .modal-box {
+    padding: 24px 18px;
+    border-radius: 12px;
+    max-height: 92vh;
+  }
+
+  .modal-box--maintenance {
+    padding: 30px 20px 24px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    gap: 8px;
+    padding-right: 24px;
+  }
+
+  /* Pricing tiers — 1 kolom di tablet/mobile */
+  .pricing-tiers {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Tabs — bisa scroll horizontal jika teks panjang */
+  .modal-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+
+  /* Tabel — font sedikit lebih kecil agar muat */
+  .modal-table th,
+  .modal-table td {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  /* Maintenance badge di social card — cegah terpotong */
+  .social-card--maintenance::after {
+    font-size: 0.58rem;
+    padding: 2px 5px;
+    right: 4px;
+    top: -7px;
+  }
+
+  /* Maintenance actions — full width */
+  .maintenance-btn {
+    font-size: 0.85rem;
+    padding: 10px 14px;
+  }
 }
 
 /* ==========================================================================
-   12. RESPONSIVE — MOBILE KECIL (max-width: 480px)
+   14. RESPONSIVE — MOBILE KECIL (max-width: 480px)
    ========================================================================== */
 @media (max-width: 480px) {
   .section-title {
     font-size: 1.8rem;
   }
-
   .hero-title {
     font-size: 1.7rem;
   }
@@ -1247,13 +1441,53 @@ body.modal-open {
     white-space: nowrap;
   }
 
-  /* Ilustrasi lebih kecil di HP sangat kecil */
   .hero-illustration {
-    max-width: 280px;
+    max-width: 260px;
   }
 
-  /* Service grid: 1 kolom penuh di HP kecil */
+  /* Service grid — 1 kolom */
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Modal lebih tipis */
+  .modal-box {
+    padding: 20px 16px;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+  }
+
+  .price-big {
+    font-size: 1.25rem;
+  }
+
+  /* Tier pricing tetap 1 kolom, font lebih kecil */
+  .tier-name {
+    font-size: 0.78rem;
+  }
+  .tier-price strong {
+    font-size: 0.95rem;
+  }
+  .tier-features li {
+    font-size: 0.75rem;
+  }
+
+  /* Feature list lebih compact */
+  .modal-features li {
+    font-size: 0.83rem;
+    padding: 7px 10px;
+  }
+
+  /* Tabel scroll horizontal dengan hint visual */
+  .modal-table-wrap {
+    border-radius: 6px;
+  }
+
+  .modal-table th,
+  .modal-table td {
+    padding: 7px 9px;
+    font-size: 0.78rem;
   }
 }
