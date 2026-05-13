@@ -37,7 +37,7 @@
             </h1>
 
             <p class="hero-description">
-              Pesulap Skripsi hadir sebagai partner akademik terpercaya untuk
+              PesulapSkripsi hadir sebagai partner akademik terpercaya untuk
               mendampingi Anda di setiap tahap penelitian. Dari penentuan judul
               hingga persiapan sidang, kami memastikan proses Anda lebih
               terarah, efisien, dan bebas dari kebingungan.
@@ -55,13 +55,19 @@
               <p class="contact-title">Hubungi kami:</p>
 
               <div class="social-cards-container">
-                <a href="LINK_IG_1" target="_blank" class="social-card">
+                <!-- Instagram PesulapSkripsi — Under Maintenance -->
+                <a
+                  href="#"
+                  class="social-card social-card--maintenance"
+                  data-maintenance="true"
+                  aria-label="Instagram PesulapSkripsi (sedang maintenance)"
+                >
                   <img
                     src="assets/icon/instagramicon.svg"
                     alt="Instagram"
                     class="icon"
                   />
-                  <span>Instagram @PesulapSkripsi (restricted)</span>
+                  <span>Instagram @PesulapSkripsi</span>
                 </a>
 
                 <a
@@ -118,7 +124,7 @@
               </div>
             </div>
 
-            <!-- Ilustrasi flat inline SVG: mahasiswa + toga + laptop + buku -->
+            <!-- Ilustrasi SVG -->
             <svg
               class="hero-illustration"
               viewBox="0 0 420 420"
@@ -126,11 +132,8 @@
               xmlns="http://www.w3.org/2000/svg"
               aria-label="Ilustrasi mahasiswa belajar"
             >
-              <!-- Latar lingkaran hangat -->
               <circle cx="210" cy="210" r="190" fill="#FFF5EE" />
               <circle cx="210" cy="210" r="148" fill="#FFE8D6" opacity="0.45" />
-
-              <!-- Meja -->
               <rect
                 x="75"
                 y="270"
@@ -158,8 +161,6 @@
                 fill="#E76F51"
                 opacity="0.55"
               />
-
-              <!-- Laptop (badan) -->
               <rect
                 x="128"
                 y="210"
@@ -176,7 +177,6 @@
                 rx="5"
                 fill="#3d3d3d"
               />
-              <!-- Layar: baris kode simulasi -->
               <rect
                 x="143"
                 y="224"
@@ -222,7 +222,6 @@
                 fill="#fff"
                 opacity="0.25"
               />
-              <!-- Engsel laptop -->
               <rect
                 x="118"
                 y="268"
@@ -231,8 +230,6 @@
                 rx="3.5"
                 fill="#1a1a1a"
               />
-
-              <!-- Buku tumpuk (kiri meja) -->
               <rect
                 x="76"
                 y="249"
@@ -284,8 +281,6 @@
                 fill="#fff"
                 opacity="0.45"
               />
-
-              <!-- Cangkir kopi (kanan meja) -->
               <rect
                 x="312"
                 y="244"
@@ -324,8 +319,6 @@
                 fill="none"
                 stroke-linecap="round"
               />
-
-              <!-- Kursi / punggung -->
               <rect
                 x="178"
                 y="168"
@@ -335,21 +328,15 @@
                 fill="#F4A261"
                 opacity="0.18"
               />
-
-              <!-- Kepala -->
               <circle cx="210" cy="147" r="29" fill="#FDDCB5" />
-              <!-- Rambut -->
               <path
                 d="M181 139 Q183 114 210 111 Q237 114 239 139 Q231 127 210 127 Q189 127 181 139Z"
                 fill="#2a2a2a"
               />
-              <!-- Mata -->
               <circle cx="202" cy="147" r="2.8" fill="#2a2a2a" />
               <circle cx="218" cy="147" r="2.8" fill="#2a2a2a" />
-              <!-- Kilap mata -->
               <circle cx="203.5" cy="145.5" r="1" fill="#fff" />
               <circle cx="219.5" cy="145.5" r="1" fill="#fff" />
-              <!-- Senyum -->
               <path
                 d="M204 156 Q210 162 216 156"
                 stroke="#2a2a2a"
@@ -357,8 +344,6 @@
                 fill="none"
                 stroke-linecap="round"
               />
-
-              <!-- Tangan kiri (memegang pena) -->
               <path
                 d="M186 193 Q170 213 160 238"
                 stroke="#FDDCB5"
@@ -380,8 +365,6 @@
                 fill="#2a2a2a"
                 transform="rotate(-20 153 250)"
               />
-
-              <!-- Tangan kanan (di laptop) -->
               <path
                 d="M234 193 Q250 213 258 236"
                 stroke="#FDDCB5"
@@ -389,8 +372,6 @@
                 stroke-linecap="round"
                 fill="none"
               />
-
-              <!-- Toga / topi wisuda -->
               <rect
                 x="193"
                 y="118"
@@ -410,8 +391,6 @@
                 stroke-linecap="round"
               />
               <circle cx="234" cy="135" r="3.5" fill="#F4A261" />
-
-              <!-- Dekorasi bintang / dot -->
               <circle cx="342" cy="128" r="5" fill="#F4A261" opacity="0.55" />
               <circle cx="78" cy="198" r="4" fill="#E76F51" opacity="0.35" />
               <circle cx="362" cy="188" r="3" fill="#F4A261" opacity="0.45" />
@@ -435,8 +414,8 @@
           </div>
 
           <div class="services-grid">
-            <!-- 2 Kartu Unggulan -->
-            <div class="service-card card-featured">
+            <!-- Kartu Unggulan 1 -->
+            <div class="service-card card-featured" data-modal="modal-skripsi">
               <div class="card-featured-badge">Paling Dicari</div>
               <div class="card-icon">🎓</div>
               <h3 class="card-title">Pembuatan Proposal, Skripsi & Thesis</h3>
@@ -445,9 +424,16 @@
                 thesis dari awal hingga akhir — dengan fokus pada kualitas dan
                 pemahaman.
               </p>
+              <button class="btn-lihat-harga">
+                Selengkapnya <span class="arrow">→</span>
+              </button>
             </div>
 
-            <div class="service-card card-featured">
+            <!-- Kartu Unggulan 2 -->
+            <div
+              class="service-card card-featured"
+              data-modal="modal-bimbingan"
+            >
               <div class="card-featured-badge">Populer</div>
               <div class="card-icon">👨‍🏫</div>
               <h3 class="card-title">Bimbingan Intensif</h3>
@@ -455,10 +441,13 @@
                 Bimbingan skripsi intensif dari awal hingga akhir — membantu
                 Anda memahami alur penelitian, bukan hanya menyelesaikannya.
               </p>
+              <button class="btn-lihat-harga">
+                Selengkapnya <span class="arrow">→</span>
+              </button>
             </div>
 
             <!-- Kartu Reguler -->
-            <div class="service-card">
+            <div class="service-card" data-modal="modal-olahdata">
               <div class="card-icon">📊</div>
               <h3 class="card-title">Olah Data Statistik</h3>
               <p class="card-desc">
@@ -466,18 +455,27 @@
                 dapat dipertanggungjawabkan untuk menghasilkan penelitian yang
                 valid.
               </p>
+              <button class="btn-lihat-harga">
+                Selengkapnya <span class="arrow">→</span>
+              </button>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" data-modal="modal-jurnal">
               <div class="card-icon">📑</div>
-              <h3 class="card-title">Referensi Jurnal & Rumusan Judul</h3>
+              <h3 class="card-title">Pencarian Referensi Jurnal</h3>
               <p class="card-desc">
-                Bantuan dalam menemukan topik yang tepat, merumuskan judul yang
-                kuat, hingga pencarian referensi jurnal berkualitas.
+                Bantuan dalam menemukan referensi jurnal berkualitas,
+                menyediakan indikator penelitian & instrumen kuesioner yang
+                valid.
               </p>
+              <button class="btn-lihat-harga">
+                Selengkapnya <span class="arrow">→</span>
+              </button>
             </div>
 
-            <div class="service-card">
+            <!-- Kartu Coming Soon -->
+            <div class="service-card card-coming-soon">
+              <div class="card-coming-badge">Coming Soon</div>
               <div class="card-icon">💻</div>
               <h3 class="card-title">Pembuatan Aplikasi & Website</h3>
               <p class="card-desc">
@@ -487,13 +485,16 @@
               </p>
             </div>
 
-            <div class="service-card">
+            <div class="service-card" data-modal="modal-parafrase">
               <div class="card-icon">✍️</div>
               <h3 class="card-title">Parafrase</h3>
               <p class="card-desc">
-                Menurunkan tingkat plagiasi (Turnitin) dengan teknik penulisan
-                ulang yang profesional.
+                Penulisan ulang konten akademik untuk menurunkan tingkat
+                plagiasi tanpa mengubah makna, sesuai standar Turnitin.
               </p>
+              <button class="btn-lihat-harga">
+                Selengkapnya <span class="arrow">→</span>
+              </button>
             </div>
           </div>
         </div>
@@ -504,7 +505,6 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
       <div class="container">
-        <!-- Baris atas: brand, nav, kontak -->
         <div class="footer-top">
           <div class="footer-brand">
             <img
@@ -558,10 +558,8 @@
           </div>
         </div>
 
-        <!-- Garis pemisah -->
         <div class="footer-divider"></div>
 
-        <!-- Baris bawah: copyright + partnership -->
         <div class="footer-bottom">
           <p class="copyright">
             &copy; 2026 PesulapSkripsi. All rights reserved.
@@ -588,6 +586,403 @@
       <img src="assets/icon/whatsappicon.svg" alt="WhatsApp" class="icon-wa" />
       <span class="wa-text">Konsultasi Sekarang</span>
     </a>
+
+    <!-- =====================================================================
+         MODAL: UNDER MAINTENANCE (Instagram PesulapSkripsi)
+    ===================================================================== -->
+    <div
+      class="modal-overlay"
+      id="modal-maintenance"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-maintenance-title"
+    >
+      <div class="modal-box modal-box--maintenance">
+        <button class="modal-close" aria-label="Tutup">&times;</button>
+        <div class="maintenance-icon">🔧</div>
+        <h2 class="modal-title" id="modal-maintenance-title">
+          Under Maintenance
+        </h2>
+        <p class="maintenance-desc">
+          Akun Instagram <strong>@PesulapSkripsi</strong> sedang dalam perbaikan
+          dan sementara tidak dapat diakses.
+        </p>
+        <p class="maintenance-alt">Sementara itu, hubungi kami melalui:</p>
+        <div class="maintenance-actions">
+          <a
+            href="https://www.instagram.com/nekatlulus.id?igsh=a2xxaGUwNXdsOTFw"
+            target="_blank"
+            class="maintenance-btn maintenance-btn--ig"
+          >
+            <img
+              src="assets/icon/instagramicon.svg"
+              alt="Instagram"
+              class="icon"
+            />
+            Instagram @Nekatlulus.ID
+          </a>
+          <a
+            href="https://wa.me/message/JZJVJVISZO7FL1"
+            target="_blank"
+            class="maintenance-btn maintenance-btn--wa"
+          >
+            <img
+              src="assets/icon/whatsappicon.svg"
+              alt="WhatsApp"
+              class="icon"
+            />
+            WhatsApp Admin
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: PEMBUATAN SKRIPSI & THESIS
+    ===================================================================== -->
+    <div
+      class="modal-overlay"
+      id="modal-skripsi"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-skripsi-title"
+    >
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Tutup">&times;</button>
+        <div class="modal-header">
+          <span class="modal-icon">🎓</span>
+          <div>
+            <h2 class="modal-title" id="modal-skripsi-title">
+              Pembuatan Proposal, Skripsi & Thesis
+            </h2>
+            <p class="modal-subtitle">
+              Pendampingan menyeluruh dengan fokus kualitas & pemahaman
+            </p>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="modal-tabs">
+          <button class="tab-btn active" data-tab="tab-skripsi-bundling">
+            Paket Bundling
+          </button>
+          <button class="tab-btn" data-tab="tab-skripsi-satuan">
+            Paket Satuan
+          </button>
+        </div>
+
+        <!-- Tab: Bundling -->
+        <div class="tab-content active" id="tab-skripsi-bundling">
+          <div class="pricing-tiers">
+            <div class="pricing-tier">
+              <div class="tier-name">Paket Proposal</div>
+              <div class="tier-price">
+                Start From<br /><strong>Rp 1.300.000</strong>
+              </div>
+            </div>
+            <div class="pricing-tier tier-highlight">
+              <div class="tier-name">Paket Kuantitatif</div>
+              <div class="tier-price">
+                Start From<br /><strong>Rp 1.400.000</strong>
+              </div>
+            </div>
+            <div class="pricing-tier">
+              <div class="tier-name">Paket Kualitatif</div>
+              <div class="tier-price">
+                Start From<br /><strong>Rp 1.500.000</strong>
+              </div>
+            </div>
+          </div>
+          <ul class="modal-features">
+            <li>✅ Garansi Revisi Sampai ACC (tanpa biaya tambahan)</li>
+            <li>✅ Jaminan 100% Anti-Copas (bebas plagiasi)</li>
+            <li>✅ Intensive Guidance via Chat & G-Meet</li>
+            <li>✅ 100% Refund Guarantee</li>
+            <li>✅ Pengerjaan Cepat — estimasi 4–7 hari</li>
+            <li>✅ Bonus Siap Sidang: Free PPT & Standar Formatting</li>
+            <li>
+              🎁 Safe Graduation Ticket: Tinggal kumpul, terima beres, siap
+              sidang!
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tab: Satuan -->
+        <div class="tab-content" id="tab-skripsi-satuan">
+          <div class="modal-table-wrap">
+            <table class="modal-table">
+              <thead>
+                <tr>
+                  <th>Paket</th>
+                  <th>Harga</th>
+                  <th>Timeline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Judul & Outline</td>
+                  <td>Rp 550.000</td>
+                  <td>2 Hari</td>
+                </tr>
+                <tr>
+                  <td>Bab 1 — Pendahuluan</td>
+                  <td>Rp 650.000</td>
+                  <td>2 Hari</td>
+                </tr>
+                <tr>
+                  <td>Bab 2 — Landasan Teori</td>
+                  <td>Rp 600.000</td>
+                  <td>2 Hari</td>
+                </tr>
+                <tr>
+                  <td>Bab 3 — Metodologi Penelitian</td>
+                  <td>Rp 550.000</td>
+                  <td>2 Hari</td>
+                </tr>
+                <tr>
+                  <td>Bab 4 — Hasil & Pembahasan</td>
+                  <td>Rp 800.000</td>
+                  <td>3 Hari</td>
+                </tr>
+                <tr>
+                  <td>Bab 5 — Kesimpulan</td>
+                  <td>Rp 500.000</td>
+                  <td>2 Hari</td>
+                </tr>
+                <tr>
+                  <td>Support System (PPT & Formatting)</td>
+                  <td>Start From Rp 150.000</td>
+                  <td>1–3 Hari</td>
+                </tr>
+                <tr>
+                  <td>Artikel Jurnal</td>
+                  <td>Rp 550.000</td>
+                  <td>3 Hari</td>
+                </tr>
+                <tr>
+                  <td>Makalah</td>
+                  <td>Rp 300.000</td>
+                  <td>2 Hari</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="modal-features">
+            <li>✅ Garansi Revisi Sampai 2x (tanpa biaya tambahan)</li>
+            <li>✅ Jaminan 100% Anti-Copas (bebas plagiasi)</li>
+            <li>✅ Intensive Guidance via Chat</li>
+            <li>✅ 100% Refund Guarantee</li>
+            <li>🎁 Bonus: Standar Formatting</li>
+          </ul>
+        </div>
+
+        <a
+          href="https://wa.me/message/JZJVJVISZO7FL1"
+          target="_blank"
+          class="modal-cta"
+        >
+          Konsultasi & Order via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: BIMBINGAN INTENSIF
+    ===================================================================== -->
+    <div
+      class="modal-overlay"
+      id="modal-bimbingan"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-bimbingan-title"
+    >
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Tutup">&times;</button>
+        <div class="modal-header">
+          <span class="modal-icon">👨‍🏫</span>
+          <div>
+            <h2 class="modal-title" id="modal-bimbingan-title">
+              Bimbingan Intensif
+            </h2>
+            <p class="modal-subtitle">
+              Bimbingan dari awal hingga akhir — pahami, bukan sekadar selesai
+            </p>
+          </div>
+        </div>
+        <div class="pricing-tiers">
+          <div class="pricing-tier">
+            <div class="tier-name">Starter Pack</div>
+            <div class="tier-price"><strong>Rp 175.000</strong></div>
+            <ul class="tier-features">
+              <li>1x Bimbingan (60 menit)</li>
+              <li>Rekaman Meeting</li>
+            </ul>
+          </div>
+          <div class="pricing-tier tier-highlight">
+            <div class="tier-badge">Coming soon!</div>
+            <div class="tier-name">Milestone Pack</div>
+            <div class="tier-price"><strong>Rp X00.000</strong></div>
+            <ul class="tier-features">
+              <li>4x Bimbingan (4×60 menit)</li>
+              <li>Rekaman Meeting</li>
+              <li>Free 1x Cek Turnitin</li>
+            </ul>
+          </div>
+          <div class="pricing-tier">
+            <div class="tier-badge">Coming soon!</div>
+            <div class="tier-name">Graduation Pack</div>
+            <div class="tier-price"><strong>Rp X00.000</strong></div>
+            <ul class="tier-features">
+              <li>8x Bimbingan (8×60 menit)</li>
+              <li>Rekaman Meeting</li>
+              <li>Free Cek Turnitin</li>
+              <li>Bimbingan by Chat</li>
+              <li>Free 1 Jurnal Scopus</li>
+            </ul>
+          </div>
+        </div>
+        <a
+          href="https://wa.me/message/JZJVJVISZO7FL1"
+          target="_blank"
+          class="modal-cta"
+        >
+          Konsultasi & Order via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: OLAH DATA STATISTIK
+    ===================================================================== -->
+    <div
+      class="modal-overlay"
+      id="modal-olahdata"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-olahdata-title"
+    >
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Tutup">&times;</button>
+        <div class="modal-header">
+          <span class="modal-icon">📊</span>
+          <div>
+            <h2 class="modal-title" id="modal-olahdata-title">
+              Olah Data Statistik
+            </h2>
+            <p class="modal-subtitle">
+              Analisis akurat, terarah, dan dapat dipertanggungjawabkan
+            </p>
+          </div>
+        </div>
+        <div class="modal-price-highlight">
+          <span class="price-label">Start From</span>
+          <span class="price-big">Rp 650.000</span>
+        </div>
+        <ul class="modal-features">
+          <li>✅ Garansi Revisi 2x</li>
+          <li>✅ Proses Cepat (3–4 hari kerja)</li>
+          <li>✅ Special Guidance by Chat</li>
+          <li>✅ Metode Valid & Reliabel (SPSS, AMOS, SmartPLS, dsb.)</li>
+          <li>
+            🔒 Special Guarantee: Data akurat atau kami olah ulang sampai sesuai
+            hipotesis
+          </li>
+        </ul>
+        <a
+          href="https://wa.me/message/JZJVJVISZO7FL1"
+          target="_blank"
+          class="modal-cta"
+        >
+          Konsultasi & Order via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: PENCARIAN REFERENSI JURNAL
+    ===================================================================== -->
+    <div
+      class="modal-overlay"
+      id="modal-jurnal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-jurnal-title"
+    >
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Tutup">&times;</button>
+        <div class="modal-header">
+          <span class="modal-icon">📑</span>
+          <div>
+            <h2 class="modal-title" id="modal-jurnal-title">
+              Pencarian Referensi Jurnal
+            </h2>
+            <p class="modal-subtitle">
+              Jurnal berkualitas, tepat sasaran, sesuai variabel penelitian
+            </p>
+          </div>
+        </div>
+        <div class="modal-price-highlight">
+          <span class="price-label">Start From</span>
+          <span class="price-big">Rp 50.000 / Artikel</span>
+        </div>
+        <ul class="modal-features">
+          <li>✅ Terindeks Scopus, Sinta, atau Request</li>
+          <li>✅ Jurnal Terupdate (5–10 Tahun Terakhir)</li>
+          <li>✅ Kesesuaian dengan Variabel Penelitian</li>
+          <li>✅ Instrumen Valid & Reliabel</li>
+          <li>✅ Menyediakan Indikator Penelitian & Kuesioner</li>
+        </ul>
+        <a
+          href="https://wa.me/message/JZJVJVISZO7FL1"
+          target="_blank"
+          class="modal-cta"
+        >
+          Konsultasi & Order via WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         MODAL: PARAFRASE
+    ===================================================================== -->
+    <div
+      class="modal-overlay"
+      id="modal-parafrase"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-parafrase-title"
+    >
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Tutup">&times;</button>
+        <div class="modal-header">
+          <span class="modal-icon">✍️</span>
+          <div>
+            <h2 class="modal-title" id="modal-parafrase-title">Parafrase</h2>
+            <p class="modal-subtitle">
+              Turunkan plagiasi Turnitin secara profesional
+            </p>
+          </div>
+        </div>
+        <div class="modal-price-highlight">
+          <span class="price-label">Harga</span>
+          <span class="price-big">Hubungi Admin</span>
+        </div>
+        <ul class="modal-features">
+          <li>✅ FREE Cek Skor Akhir</li>
+          <li>✅ Bebas Request Persentase Target</li>
+          <li>✅ Garansi Revisi 2x</li>
+          <li>✅ Jaminan Anti-Copas & Plagiasi</li>
+          <li>✅ Special Guidance by Chat</li>
+        </ul>
+        <a
+          href="https://wa.me/message/JZJVJVISZO7FL1"
+          target="_blank"
+          class="modal-cta"
+        >
+          Tanya Harga via WhatsApp
+        </a>
+      </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
