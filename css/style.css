@@ -286,7 +286,7 @@ body {
 }
 
 .social-card--maintenance::after {
-  content: "⚠ Maintenance";
+  content: "⚠ Restricted";
   position: absolute;
   top: -8px;
   right: 8px;
