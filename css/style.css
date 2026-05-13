@@ -50,7 +50,6 @@ body {
   padding: 30px 0;
   background: linear-gradient(to bottom, #ffffff, #f9f9f9);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  /* Sticky */
   position: sticky;
   top: 0;
   z-index: 900;
@@ -61,7 +60,6 @@ body {
     backdrop-filter var(--transition);
 }
 
-/* State aktif saat user scroll — ditambahkan via JS */
 .header.scrolled {
   padding: 14px 0;
   background: rgba(255, 255, 255, 0.88);
@@ -71,7 +69,6 @@ body {
   border-bottom-color: rgba(0, 0, 0, 0.07);
 }
 
-/* Logo mengecil halus saat header menyusut */
 .header.scrolled .logo-main {
   height: 52px;
 }
@@ -273,7 +270,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Kartu Maintenance — tampak berbeda (greyed, kursor khusus) */
+/* Kartu Maintenance */
 .social-card--maintenance {
   opacity: 0.7;
   cursor: not-allowed;
@@ -288,7 +285,6 @@ body {
   box-shadow: 0 6px 15px rgba(184, 134, 11, 0.1);
 }
 
-/* Badge "⚠ Maintenance" kecil di pojok kanan atas kartu */
 .social-card--maintenance::after {
   content: "⚠ Maintenance";
   position: absolute;
@@ -383,7 +379,6 @@ body {
   font-size: 1.4rem;
   line-height: 1;
 }
-
 .fb-text {
   display: flex;
   flex-direction: column;
@@ -436,7 +431,6 @@ body {
   gap: 24px;
 }
 
-/* Kartu Reguler */
 .service-card {
   background-color: var(--bg-light);
   padding: 28px;
@@ -460,13 +454,11 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
 .service-card:hover {
   border-color: var(--mustard);
   box-shadow: 0 10px 25px rgba(244, 162, 97, 0.15);
   transform: translateY(-5px);
 }
-
 .service-card.visible:hover {
   transform: translateY(-5px);
 }
@@ -481,7 +473,6 @@ body {
   background-color: var(--coral);
   transition: width var(--transition);
 }
-
 .service-card:hover::before {
   width: 100%;
 }
@@ -491,11 +482,9 @@ body {
   background: linear-gradient(135deg, #fff8f3, #fff2e8);
   border-color: rgba(244, 162, 97, 0.35);
 }
-
 .card-featured::before {
   background-color: var(--mustard);
 }
-
 .card-featured:hover {
   border-color: var(--mustard);
   box-shadow: 0 12px 30px rgba(244, 162, 97, 0.2);
@@ -522,7 +511,6 @@ body {
   cursor: not-allowed;
   pointer-events: none;
 }
-
 .card-coming-soon.visible {
   opacity: 0.55 !important;
 }
@@ -547,7 +535,6 @@ body {
   display: inline-block;
   transition: transform var(--transition);
 }
-
 .service-card:hover .card-icon {
   transform: scale(1.2) rotate(5deg);
 }
@@ -563,10 +550,9 @@ body {
   font-size: 0.93rem;
   color: var(--text-light);
   line-height: 1.65;
-  flex: 1; /* Dorong price preview & button ke bawah */
+  flex: 1;
 }
 
-/* Tombol Selengkapnya */
 .btn-lihat-harga {
   display: inline-flex;
   align-items: center;
@@ -588,12 +574,10 @@ body {
     transform var(--transition);
   margin-top: auto;
 }
-
 .btn-lihat-harga:hover {
   background-color: var(--mustard);
   color: var(--white);
 }
-
 .btn-lihat-harga .arrow {
   transition: transform var(--transition);
 }
@@ -666,10 +650,8 @@ body {
   background-color: #2a2a2a;
   color: var(--white);
   margin-top: 80px;
-  /* Garis gradien mustard→coral di bagian atas footer */
   border-top: 3px solid transparent;
   border-image: linear-gradient(to right, var(--mustard), var(--coral)) 1;
-  /* Reveal animasi saat scroll */
   opacity: 0;
   transform: translateY(20px);
   transition:
@@ -783,16 +765,13 @@ body {
   opacity: 0.8;
   transition: opacity var(--transition);
 }
-
 .logo-partner:hover {
   opacity: 1;
 }
 
 /* ==========================================================================
-   11. SCROLL REVEAL — Utility Classes (dikontrol JS)
+   11. SCROLL REVEAL — Utility Classes
    ========================================================================== */
-
-/* Semua elemen dengan class reveal-up dimulai dari bawah */
 .reveal-up {
   opacity: 0;
   transform: translateY(28px);
@@ -800,13 +779,11 @@ body {
     opacity 0.6s ease,
     transform 0.6s ease;
 }
-
 .reveal-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Delay bertahap untuk elemen dalam satu grup */
 .reveal-up:nth-child(1) {
   transition-delay: 0s;
 }
@@ -868,7 +845,6 @@ body.modal-open {
   transform: translateY(0) scale(1);
 }
 
-/* Tombol tutup */
 .modal-close {
   position: absolute;
   top: 14px;
@@ -885,13 +861,11 @@ body.modal-open {
     background-color var(--transition),
     color var(--transition);
 }
-
 .modal-close:hover {
   background-color: #f0f0f0;
   color: var(--text-dark);
 }
 
-/* Header modal */
 .modal-header {
   display: flex;
   align-items: flex-start;
@@ -942,7 +916,6 @@ body.modal-open {
     color var(--transition),
     border-color var(--transition);
 }
-
 .tab-btn.active {
   color: var(--mustard);
   border-bottom-color: var(--mustard);
@@ -955,7 +928,7 @@ body.modal-open {
   display: block;
 }
 
-/* Pricing tiers */
+/* Pricing tiers — grid dasar */
 .pricing-tiers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -970,12 +943,75 @@ body.modal-open {
   text-align: center;
 }
 
-.pricing-tier.tier-highlight {
-  border-color: var(--mustard);
-  background: linear-gradient(135deg, #fff8f3, #fff2e8);
-  box-shadow: 0 4px 16px rgba(244, 162, 97, 0.15);
+/* ── Format harga "Start from X,X JT" ── */
+/* Tag kecil di atas nama paket (misal "Bab 1–3") */
+.tier-tag {
+  display: inline-block;
+  font-family: var(--font-btn);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #f0f0f0;
+  border-radius: 50px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
 }
 
+.tier-tag--highlight {
+  background: rgba(244, 162, 97, 0.18);
+  color: var(--mustard);
+}
+
+/* Angka harga besar */
+.tier-price-jt {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.tier-startfrom {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--text-light);
+  letter-spacing: 0.2px;
+}
+
+.tier-nominal {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.tier-number {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--coral);
+  line-height: 1;
+}
+
+.tier-highlight .tier-number {
+  color: var(--coral);
+}
+
+.tier-unit {
+  font-family: var(--font-btn);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--coral);
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
+.tier-highlight .tier-unit {
+  color: var(--mustard);
+}
+
+/* Tier styles untuk modal bimbingan (format lama, tetap dipertahankan) */
 .tier-badge {
   display: inline-block;
   background: var(--mustard);
@@ -1159,7 +1195,7 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   12. MODAL UNDER MAINTENANCE
+   13. MODAL UNDER MAINTENANCE
    ========================================================================== */
 .modal-box--maintenance {
   max-width: 400px;
@@ -1198,7 +1234,6 @@ body.modal-open {
   margin-bottom: 10px;
   line-height: 1.6;
 }
-
 .maintenance-desc strong {
   color: var(--text-dark);
 }
@@ -1250,11 +1285,9 @@ body.modal-open {
   );
   color: var(--white);
 }
-
 .maintenance-btn--ig .icon {
   filter: brightness(0) invert(1);
 }
-
 .maintenance-btn--ig:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(220, 39, 67, 0.35);
@@ -1264,19 +1297,16 @@ body.modal-open {
   background-color: #25d366;
   color: var(--white);
 }
-
 .maintenance-btn--wa .icon {
   filter: brightness(0) invert(1);
 }
-
 .maintenance-btn--wa:hover {
   background-color: #1ebe5d;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
 }
 
-/* Keyframe untuk floating badge di mobile — harus di luar media query
-   agar kompatibel dengan semua browser */
+/* Keyframe untuk floating badge di mobile */
 @keyframes badgeFadeInMobile {
   from {
     opacity: 0;
@@ -1289,15 +1319,13 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   13. RESPONSIVE — TABLET & MOBILE (max-width: 768px)
+   14. RESPONSIVE — TABLET & MOBILE (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Header */
   .logo-main {
     height: 65px;
   }
 
-  /* Hero */
   .hero,
   .services {
     padding: 50px 0;
@@ -1312,13 +1340,11 @@ body.modal-open {
   .hero-title {
     font-size: 2rem;
   }
-
   .hero-description {
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
-
   .hero-badge {
     justify-content: center;
   }
@@ -1335,7 +1361,6 @@ body.modal-open {
     display: block;
   }
 
-  /* Floating badge centering dengan keyframe terpisah */
   .floating-badge {
     left: 50%;
     bottom: 0;
@@ -1343,73 +1368,67 @@ body.modal-open {
     animation: badgeFadeInMobile 0.6s ease 0.9s forwards;
   }
 
-  /* Floating WA */
   .floating-wa {
     bottom: 20px;
     right: 20px;
     padding: 14px;
     border-radius: 50%;
   }
-
   .wa-text {
     display: none;
   }
 
-  /* Footer */
   .footer-top {
     flex-direction: column;
     gap: 32px;
   }
-
   .footer-bottom {
     flex-direction: column;
     text-align: center;
     gap: 20px;
   }
-
   .partnership-footer {
     flex-direction: column;
     gap: 8px;
   }
 
-  /* Modal — padding lebih kecil */
   .modal-box {
     padding: 24px 18px;
     border-radius: 12px;
     max-height: 92vh;
   }
-
   .modal-box--maintenance {
     padding: 30px 20px 24px;
   }
-
   .modal-header {
     flex-direction: column;
     gap: 8px;
     padding-right: 24px;
   }
 
-  /* Pricing tiers — 1 kolom di tablet/mobile */
+  /* Pricing tiers — 1 kolom */
   .pricing-tiers {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  /* Tabs — bisa scroll horizontal jika teks panjang */
+  /* Angka JT sedikit dikecilkan di mobile */
+  .tier-number {
+    font-size: 2rem;
+  }
+
   .modal-tabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 2px;
   }
 
-  /* Tabel — font sedikit lebih kecil agar muat */
   .modal-table th,
   .modal-table td {
     padding: 8px 10px;
     font-size: 0.82rem;
   }
 
-  /* Maintenance badge di social card — cegah terpotong */
   .social-card--maintenance::after {
     font-size: 0.58rem;
     padding: 2px 5px;
@@ -1417,7 +1436,6 @@ body.modal-open {
     top: -7px;
   }
 
-  /* Maintenance actions — full width */
   .maintenance-btn {
     font-size: 0.85rem;
     padding: 10px 14px;
@@ -1425,7 +1443,7 @@ body.modal-open {
 }
 
 /* ==========================================================================
-   14. RESPONSIVE — MOBILE KECIL (max-width: 480px)
+   15. RESPONSIVE — MOBILE KECIL (max-width: 480px)
    ========================================================================== */
 @media (max-width: 480px) {
   .section-title {
@@ -1440,30 +1458,31 @@ body.modal-open {
     padding: 8px 12px;
     white-space: nowrap;
   }
-
   .hero-illustration {
     max-width: 260px;
   }
-
-  /* Service grid — 1 kolom */
   .services-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Modal lebih tipis */
   .modal-box {
     padding: 20px 16px;
   }
-
   .modal-title {
     font-size: 1.1rem;
   }
-
   .price-big {
     font-size: 1.25rem;
   }
 
-  /* Tier pricing tetap 1 kolom, font lebih kecil */
+  /* Angka JT lebih kecil lagi di HP sangat kecil */
+  .tier-number {
+    font-size: 1.8rem;
+  }
+  .tier-unit {
+    font-size: 0.75rem;
+  }
+
   .tier-name {
     font-size: 0.78rem;
   }
@@ -1474,17 +1493,14 @@ body.modal-open {
     font-size: 0.75rem;
   }
 
-  /* Feature list lebih compact */
   .modal-features li {
     font-size: 0.83rem;
     padding: 7px 10px;
   }
 
-  /* Tabel scroll horizontal dengan hint visual */
   .modal-table-wrap {
     border-radius: 6px;
   }
-
   .modal-table th,
   .modal-table td {
     padding: 7px 9px;

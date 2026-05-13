@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   window.addEventListener("scroll", handleHeaderScroll, { passive: true });
-  handleHeaderScroll(); // Jalankan sekali saat load (jika halaman sudah di-scroll)
+  handleHeaderScroll();
 
   /* ------------------------------------------------------------------
      2. SCROLL REVEAL — Service Cards (staggered)
@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Buka modal dari tombol di service card
   document.querySelectorAll(".service-card[data-modal]").forEach((card) => {
     const btn = card.querySelector(".btn-lihat-harga");
     if (!btn) return;
@@ -118,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Tutup via tombol ×
   document.querySelectorAll(".modal-close").forEach((btn) => {
     btn.addEventListener("click", () => {
       const modal = btn.closest(".modal-overlay");
@@ -126,14 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Tutup via klik backdrop
   document.querySelectorAll(".modal-overlay").forEach((overlay) => {
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) closeModal(overlay);
     });
   });
 
-  // Tutup via Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       document.querySelectorAll(".modal-overlay.active").forEach(closeModal);
